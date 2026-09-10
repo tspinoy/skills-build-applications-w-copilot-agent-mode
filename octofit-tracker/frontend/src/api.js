@@ -3,8 +3,8 @@ const apiOrigin = codespaceName
   ? `https://${codespaceName}-8000.app.github.dev`
   : 'http://localhost:8000'
 
-export async function fetchCollection(component) {
-  const response = await fetch(`${apiOrigin}/api/${component}/`)
+export async function fetchCollection(component, endpoint = `${apiOrigin}/api/${component}/`) {
+  const response = await fetch(endpoint)
 
   if (!response.ok) {
     throw new Error(`Unable to load ${component}.`)
